@@ -6,9 +6,9 @@ class Estudiante(Base):
     __tablename__ = 'Estudiantes'
 
     estudiante_id = Column(Integer, primary_key=True, index=True)
-    usuario_id = Column(Integer, ForeignKey('Usuarios.usuario_id', ondelete="CASCADE"), nullable=False)
-    fecha_nacimiento = Column(Date)
-    curso = Column(String(50))
+    usuario_id = Column(Integer, ForeignKey('Usuarios.usuario_id', ondelete='CASCADE'), nullable=False)
+    fecha_nacimiento = Column(Date, nullable=False)
+    curso = Column(String(50), nullable=False)
 
     # Relaciones
     usuario = relationship("Usuario", back_populates="estudiantes")

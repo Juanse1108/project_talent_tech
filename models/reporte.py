@@ -6,9 +6,9 @@ class Reporte(Base):
     __tablename__ = 'Reportes'
 
     reporte_id = Column(Integer, primary_key=True, index=True)
-    estudiante_id = Column(Integer, ForeignKey('Estudiantes.estudiante_id', ondelete="CASCADE"), nullable=False)
-    fecha_generacion = Column(Date)
-    contenido = Column(Text)
+    estudiante_id = Column(Integer, ForeignKey('Estudiantes.estudiante_id', ondelete='CASCADE'), nullable=False)
+    fecha_generacion = Column(Date, nullable=False)
+    contenido = Column(Text, nullable=False)
 
     # Relaciones
     estudiante = relationship("Estudiante", back_populates="reportes")

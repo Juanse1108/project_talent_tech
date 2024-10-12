@@ -8,8 +8,7 @@ class Asignatura(Base):
     asignatura_id = Column(Integer, primary_key=True, index=True)
     nombre = Column(String(100), nullable=False)
     descripcion = Column(Text)
-    profesor_id = Column(Integer, ForeignKey('Usuarios.usuario_id'), nullable=True)
+    profesor_id = Column(Integer, ForeignKey('Usuarios.usuario_id'))
 
     # Relaciones
     profesor = relationship("Usuario", back_populates="asignaturas")
-    notas = relationship("Nota", back_populates="asignatura")
